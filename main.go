@@ -9,7 +9,7 @@ import (
 
 func main() {
 	session := dd.DingdongSession{}
-	err := session.InitSession("DDXQSESSID=xxxxxxxxxxx", "xxxxxxxxxxxxx")
+	err := session.InitSession("DDXQSESSID=be71699f5fb2f8ddd8475be4f7892f48", "")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -71,15 +71,15 @@ cartLoop:
 					switch err {
 					case nil:
 						fmt.Println("抢购成功，请前往app付款！")
-						for true {
-							err = session.PushSuccess()
-							if err == nil {
-								break
-							} else {
-								fmt.Println(err)
-							}
-							time.Sleep(1 * time.Second)
-						}
+						//for true {
+						//err = session.PushSuccess()
+						//if err == nil {
+						//	break
+						//} else {
+						//	fmt.Println(err)
+						//}
+						//time.Sleep(1 * time.Second)
+						//}
 						return
 					case dd.TimeExpireErr:
 						fmt.Printf("[%s] %s\n", reserveTime.SelectMsg, err)
